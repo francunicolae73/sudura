@@ -34,6 +34,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/products/**").permitAll() // Allow public access to products
                         .requestMatchers("/api/categories/**").permitAll() // Allow public access to categories
                         .requestMatchers("/api/payments/webhook").permitAll() // Allow Stripe webhooks
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll() // Allow Swagger UI access
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
